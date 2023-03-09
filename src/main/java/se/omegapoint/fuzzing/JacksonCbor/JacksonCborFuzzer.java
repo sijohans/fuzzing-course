@@ -1,5 +1,7 @@
 package se.omegapoint.fuzzing.JacksonCbor;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.cbor.CBORFactory;
 
@@ -8,8 +10,26 @@ import java.io.IOException;
 public class JacksonCborFuzzer {
 
     public static class MyValue {
-        public String name;
-        public int age;
+        private final String name;
+        private final int age;
+
+        @JsonCreator
+        public MyValue(@JsonProperty(value = "name", required = true) final String name,
+                       @JsonProperty(value = "age", required = true) final int age)
+        {
+            this.name = name;
+            this.age = age;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public int getAge()
+        {
+            return age;
+        }
+
     }
 
     public static void parse(byte [] input) {
@@ -20,9 +40,10 @@ public class JacksonCborFuzzer {
             /*
              * Not sure about what Jackson API says about returning null?
              */
-            System.out.println("name: " + value.name + ", age: " + value.age);
+            System.out.println("name: " + value.getName() + ", age: " + value.getAge());
         } catch (IOException e) {
             /* ok */
+            System.out.println(e.getMessage());
         }
 
     }
