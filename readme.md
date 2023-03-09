@@ -109,7 +109,7 @@ public interface HelloMessageParser {
      *  - The interface must never return null
      *  - The field name and publicKey of the returned HelloMessage must not be null
      *  - Name can be the empty string (e.g. name length is 0)
-     *  - Name maximum size is 256
+     *  - Name maximum size is 256 (when invoking message.getName().length())
      *  - The name is encoded in UTF-8 (It is ok to not verify this)
      *  - Public key length must be in range [32, 4096]
      * 
