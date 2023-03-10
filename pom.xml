@@ -13,8 +13,8 @@
         <java.version>1.8</java.version>
         <junit-jupiter.version>5.5.2</junit-jupiter.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -37,6 +37,18 @@
         <dependency>
             <groupId>com.code-intelligence</groupId>
             <artifactId>jazzer-api</artifactId>
+            <version>0.15.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.code-intelligence</groupId>
+            <artifactId>jazzer</artifactId>
+            <version>0.15.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.code-intelligence</groupId>
+            <artifactId>jazzer-junit</artifactId>
             <version>0.15.0</version>
         </dependency>
 
