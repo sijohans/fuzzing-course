@@ -1,9 +1,12 @@
 package se.omegapoint.fuzzing.HelloMessage;
 
+import com.code_intelligence.jazzer.api.FuzzedDataProvider;
+
 public class HelloMessageFuzzer {
 
-    public static void fuzzerTestOneInput(byte[] input) throws Exception {
+    public static void fuzzerTestOneInput(FuzzedDataProvider data) throws Exception {
         try {
+            byte[] input = data.consumeRemainingAsBytes();
             HelloMessage message = new HelloMessageParserImplementation().parse(input);
             if (message == null)
             {

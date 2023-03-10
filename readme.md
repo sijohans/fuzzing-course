@@ -2,8 +2,12 @@
 Fuzzing with Jazzer is very easy. You just need to implement one method:
 ```java
 public class MyFuzzer {
-   public static void fuzzerTestOneInput(byte[] input) {
-      // Call your code here
+   public static void fuzzerTestOneInput(FuzzedDataProvider data) {
+      /*
+       * FuzzedDataProvider provides methods for getting the input on different forms. E.g.:
+       *    - data.consumeRemainingAsBytes()
+       *    - data.consumeRemainingAsString()
+       */
    }   
 }
 ```
